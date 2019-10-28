@@ -1,0 +1,26 @@
+# Version:  Used if a new set of energy rates needed to be added.
+#           We cannot just replace energy rates because historical billing needs to know
+#           what the energy rate was at THAT time of the historical point, not the current replaced rates.
+
+# Priority: This field is included to future-proof additions to the "energy rate" db model.
+#           Right now, we have models that will include a `Boolean` field for `is_weekday` or `is_weekend`.
+#           In the future though, we may want a service rate for a certain day of the week, or even
+#           a very specific day where the energy rate is supposed to be different and override the other models.
+#           The priority field would be used to prioritize the specific day (or even the day-of-the-week)
+#           energy rates over the energy rates that simply cover a weekend or weekday.
+
+-
+amount: .05
+is_weekend: true
+is_weekday: false
+start_time: "0:00"
+end_time: "24:00"
+priority: 1
+version: 1
+-
+amount: 0.2
+-
+amount: 0.3
+-
+amount: 0.1
+-
